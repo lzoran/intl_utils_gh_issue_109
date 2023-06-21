@@ -1,0 +1,12 @@
+{
+  "testMessage": "Test message",
+  "testMessageWithDate": "Date: {date}",
+  "@testMessageWithDate": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMd"
+      }
+    }
+  }
+}

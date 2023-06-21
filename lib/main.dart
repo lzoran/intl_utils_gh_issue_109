@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'generated/l10n.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,6 +33,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -108,6 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
+            Text(S.of(context).testMessage),
+            Text(S.of(context).testMessageWithDate(DateTime.now())),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
